@@ -21,6 +21,13 @@ boudiccaQueryGenerator.forBlock['text'] = function (block, generator) {
     return [queryCode, Order.ATOMIC];
 }
 
+boudiccaQueryGenerator.forBlock['custom_field'] = function (block, generator) {
+    const textValue = block.getFieldValue('FIELDNAME');
+    const escapedTextValue = escapeText(textValue);
+    let queryCode = `"${escapedTextValue}"`;
+    return [queryCode, Order.ATOMIC];
+}
+
 boudiccaQueryGenerator.forBlock['math_number'] = function (block, generator) {
     const numberValue = block.getFieldValue('NUM');
     return [numberValue, Order.ATOMIC];
