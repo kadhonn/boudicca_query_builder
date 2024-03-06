@@ -46,3 +46,16 @@ boudiccaQueryGenerator.forBlock['and'] = function (block, generator) {
     let queryCode = `(${op1Value}) and (${op2Value})`;
     return [queryCode, Order.ATOMIC];
 }
+
+boudiccaQueryGenerator.forBlock['or'] = function (block, generator) {
+    const op1Value = generator.valueToCode(block, 'OP1', Order.ATOMIC);
+    const op2Value = generator.valueToCode(block, 'OP2', Order.ATOMIC);
+    let queryCode = `(${op1Value}) or (${op2Value})`;
+    return [queryCode, Order.ATOMIC];
+}
+
+boudiccaQueryGenerator.forBlock['not'] = function (block, generator) {
+    const op1Value = generator.valueToCode(block, 'OP1', Order.ATOMIC);
+    let queryCode = `not (${op1Value})`;
+    return [queryCode, Order.ATOMIC];
+}

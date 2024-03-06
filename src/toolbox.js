@@ -40,5 +40,13 @@ export const toolbox = {
             'kind': 'block',
             'type': 'and',
         },
+        {
+            'kind': 'block',
+            'type': 'or',
+        },
+        {
+            'kind': 'block',
+            'type': 'not',
+        },
     ]
 };

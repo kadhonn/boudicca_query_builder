@@ -98,5 +98,42 @@ const andBlock = {
     'helpUrl': '',
 };
 
+const orBlock = {
+    'type': 'or',
+    'message0': 'or %1 %2',
+    'args0': [
+        {
+            'type': 'input_value',
+            'name': 'OP1',
+            'check': 'Query',
+        },
+        {
+            'type': 'input_value',
+            'name': 'OP2',
+            'check': 'Query',
+        },
+    ],
+    'output': 'Query',
+    'colour': '%{BKY_LOGIC_HUE}',
+    'tooltip': '',
+    'helpUrl': '',
+};
+
+const notBlock = {
+    'type': 'not',
+    'message0': 'not %1',
+    'args0': [
+        {
+            'type': 'input_value',
+            'name': 'OP1',
+            'check': 'Query',
+        },
+    ],
+    'output': 'Query',
+    'colour': '%{BKY_LOGIC_HUE}',
+    'tooltip': '',
+    'helpUrl': '',
+};
+
 export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
-    [queryRootBlock, customFieldBlock, knownFieldBlock, containsBlock, andBlock]);
+    [queryRootBlock, customFieldBlock, knownFieldBlock, containsBlock, andBlock, orBlock, notBlock]);
