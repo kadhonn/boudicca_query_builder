@@ -42,9 +42,22 @@ const knownFieldBlock = {
             "options": [
                 ["Any Field (*)", "*"],
                 ["Name", "name"],
+                ["Start Date", "startDate"],
+                ["End Date", "endDate"],
+                ["Url", "url"],
+                ["Type", "type"],
+                ["Category", "category"],
                 ["Description", "description"],
+                ["Sources", "sources"],
                 ["Location Name", "location.name"],
+                ["Location Url", "location.url"],
+                ["Location Coordinates", "location.coordinates"],
                 ["Location City", "location.city"],
+                ["Location Address", "location.address"],
+                ["Accessible Entry", "accessibility.accessibleEntry"],
+                ["Accessible Seats", "accessibility.accessibleSeats"],
+                ["Accessible Toilets", "accessibility.accessibleToilets"],
+                ["Concert Genre", "concert.genre"],
             ]
         }
     ],
