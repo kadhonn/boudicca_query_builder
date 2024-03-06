@@ -7,10 +7,10 @@ const queryRootBlock = {
         {
             'type': 'input_value',
             'name': 'ROOT',
-            'check': 'String', //TODO can make query?
+            'check': 'Query',
         },
     ],
-    'colour': 160,
+    'colour': '%{BKY_VARIABLES_HUE}',
     'tooltip': '',
     'helpUrl': '',
 };
@@ -27,7 +27,7 @@ const customFieldBlock = {
         }
     ],
     'output': 'Field',
-    'colour': 160,
+    'colour': '%{BKY_COLOUR_HUE}',
     'tooltip': '',
     'helpUrl': '',
 };
@@ -50,7 +50,7 @@ const knownFieldBlock = {
 
     ],
     'output': 'Field',
-    'colour': 160,
+    'colour': '%{BKY_COLOUR_HUE}',
     'tooltip': '',
     'helpUrl': '',
 };
@@ -62,7 +62,7 @@ const containsBlock = {
         {
             'type': 'input_value',
             'name': 'FIELD',
-            'check': 'Field', //TODO can make field?
+            'check': 'Field',
         },
         {
             'type': 'input_value',
@@ -70,8 +70,8 @@ const containsBlock = {
             'check': 'String',
         },
     ],
-    'output': null,
-    'colour': 160,
+    'output': 'Query',
+    'colour': '%{BKY_LISTS_HUE}',
     'tooltip': '',
     'helpUrl': '',
     "inputsInline": true,
@@ -84,16 +84,16 @@ const andBlock = {
         {
             'type': 'input_value',
             'name': 'OP1',
-            'check': 'String', //TODO can make query?
+            'check': 'Query',
         },
         {
             'type': 'input_value',
             'name': 'OP2',
-            'check': 'String',
+            'check': 'Query',
         },
     ],
-    'output': null,
-    'colour': 160,
+    'output': 'Query',
+    'colour': '%{BKY_LOGIC_HUE}',
     'tooltip': '',
     'helpUrl': '',
 };
