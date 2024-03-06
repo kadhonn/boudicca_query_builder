@@ -5,18 +5,34 @@ import {save, load, reset} from './serialization';
 import {toolbox} from './toolbox';
 import './index.css';
 
+const panicButton = document.getElementById('panicButton');
+panicButton.onclick = function() {
+    reset();
+}
+
 Blockly.common.defineBlocks(blocks);
+
+const originalInit = Blockly.Blocks['query_root'].init
+Blockly.Blocks['query_root'].init = function() {
+        originalInit.apply(this);
+        this.setDeletable(false);
+    }
+
 
 // Set up UI elements and inject Blockly
 const codeDiv = document.getElementById('generatedCode').firstChild;
 const boudiccaLink = document.getElementById('boudiccaLink');
-const panicButton = document.getElementById('panicButton');
 const blocklyDiv = document.getElementById('blocklyDiv');
 const ws = Blockly.inject(blocklyDiv, {
     toolbox,
     'comments': true,
     'trashcan': true,
 });
+ws.addChangeListener(Blockly.Events.disableOrphans);
+
+// this is for recreating the default state
+Blockly.serialization.blocks.append({'type': 'query_root'}, ws);
+
 
 // This function resets the code and output divs, shows the
 // generated code from the workspace, and evals the code.
@@ -51,7 +67,3 @@ ws.addChangeListener((e) => {
     }
     generateQuery();
 });
-
-panicButton.onclick = function() {
-    reset();
-}

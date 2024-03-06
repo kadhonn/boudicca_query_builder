@@ -6,9 +6,12 @@ const Order = {
     ATOMIC: 0,
 };
 
-
 function escapeText(text) {
     return text.replaceAll('\\', '\\\\').replaceAll('"', '\\"');
+}
+
+boudiccaQueryGenerator.forBlock['query_root'] = function (block, generator) {
+    return generator.valueToCode(block, 'ROOT', Order.ATOMIC);
 }
 
 boudiccaQueryGenerator.forBlock['text'] = function (block, generator) {

@@ -1,5 +1,20 @@
 import * as Blockly from 'blockly/core';
 
+const queryRootBlock = {
+  'type': 'query_root',
+  'message0': 'query: %1',
+  'args0': [
+    {
+      'type': 'input_value',
+      'name': 'ROOT',
+      'check': 'String', //TODO can make query?
+    },
+  ],
+  'colour': 160,
+  'tooltip': '',
+  'helpUrl': '',
+};
+
 const containsBlock = {
   'type': 'contains',
   'message0': 'Field %1 contains %2',
@@ -44,4 +59,4 @@ const andBlock = {
 };
 
 export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
-    [containsBlock, andBlock]);
+    [queryRootBlock, containsBlock, andBlock]);
