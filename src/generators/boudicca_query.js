@@ -28,6 +28,13 @@ boudiccaQueryGenerator.forBlock['custom_field'] = function (block, generator) {
     return [queryCode, Order.ATOMIC];
 }
 
+boudiccaQueryGenerator.forBlock['known_field'] = function (block, generator) {
+    const textValue = block.getFieldValue('FIELDNAME');
+    const escapedTextValue = escapeText(textValue);
+    let queryCode = `"${escapedTextValue}"`;
+    return [queryCode, Order.ATOMIC];
+}
+
 boudiccaQueryGenerator.forBlock['math_number'] = function (block, generator) {
     const numberValue = block.getFieldValue('NUM');
     return [numberValue, Order.ATOMIC];
@@ -37,6 +44,30 @@ boudiccaQueryGenerator.forBlock['contains'] = function (block, generator) {
     const fieldValue = generator.valueToCode(block, 'FIELD', Order.ATOMIC);
     const textValue = generator.valueToCode(block, 'TEXT', Order.ATOMIC);
     let queryCode = `${fieldValue} contains ${textValue}`;
+    return [queryCode, Order.ATOMIC];
+}
+
+boudiccaQueryGenerator.forBlock['equals'] = function (block, generator) {
+    const fieldValue = generator.valueToCode(block, 'FIELD', Order.ATOMIC);
+    const textValue = generator.valueToCode(block, 'TEXT', Order.ATOMIC);
+    let queryCode = `${fieldValue} equals ${textValue}`;
+    return [queryCode, Order.ATOMIC];
+}
+
+boudiccaQueryGenerator.forBlock['before_after'] = function (block, generator) {
+    const fieldValue = generator.valueToCode(block, 'FIELD', Order.ATOMIC);
+    const operation = block.getFieldValue('OPERATION');
+    const textValue = generator.valueToCode(block, 'DATE', Order.ATOMIC);
+    let queryCode = `${fieldValue} ${operation} ${textValue}`;
+    return [queryCode, Order.ATOMIC];
+}
+
+boudiccaQueryGenerator.forBlock['duration'] = function (block, generator) {
+    const fieldFromValue = generator.valueToCode(block, 'FIELD_FROM', Order.ATOMIC);
+    const fieldToValue = generator.valueToCode(block, 'FIELD_TO', Order.ATOMIC);
+    const operation = block.getFieldValue('OPERATION');
+    const numberValue = generator.valueToCode(block, 'NUMBER', Order.ATOMIC);
+    let queryCode = `duration ${fieldFromValue} ${fieldToValue} ${operation} ${numberValue}`;
     return [queryCode, Order.ATOMIC];
 }
 

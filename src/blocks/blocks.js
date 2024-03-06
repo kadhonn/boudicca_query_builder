@@ -47,7 +47,6 @@ const knownFieldBlock = {
                 ["Location City", "location.city"],
             ]
         }
-
     ],
     'output': 'Field',
     'colour': '%{BKY_LOOPS_HUE}',
@@ -75,6 +74,93 @@ const containsBlock = {
     'tooltip': '',
     'helpUrl': '',
     "inputsInline": true,
+};
+
+const equalsBlock = {
+    'type': 'equals',
+    'message0': 'Field %1 equals %2',
+    'args0': [
+        {
+            'type': 'input_value',
+            'name': 'FIELD',
+            'check': 'Field',
+        },
+        {
+            'type': 'input_value',
+            'name': 'TEXT',
+            'check': 'String',
+        },
+    ],
+    'output': 'Query',
+    'colour': '%{BKY_LISTS_HUE}',
+    'tooltip': '',
+    'helpUrl': '',
+    "inputsInline": true,
+};
+
+const beforeAfterBlock = {
+    'type': 'before_after',
+    'message0': 'Field %1 is at or %2 date %3',
+    'args0': [
+        {
+            'type': 'input_value',
+            'name': 'FIELD',
+            'check': 'Field',
+        },
+        {
+            "type": "field_dropdown",
+            "name": "OPERATION",
+            "options": [
+                ["after", "after"],
+                ["before", "before"],
+            ]
+        },
+        {
+            'type': 'input_value',
+            'name': 'DATE',
+            'check': 'String', //TODO do date
+        },
+    ],
+    'output': 'Query',
+    'colour': '%{BKY_LISTS_HUE}',
+    'tooltip': '',
+    'helpUrl': '',
+    "inputsInline": true,
+};
+
+const durationBlock = {
+    'type': 'duration',
+    'message0': 'Duration from field %1 to field %2 is %3 then %4',
+    'args0': [
+        {
+            'type': 'input_value',
+            'name': 'FIELD_FROM',
+            'check': 'Field',
+        },
+        {
+            'type': 'input_value',
+            'name': 'FIELD_TO',
+            'check': 'Field',
+        },
+        {
+            "type": "field_dropdown",
+            "name": "OPERATION",
+            "options": [
+                ["longer", "longer"],
+                ["shorter", "shorter"],
+            ]
+        },
+        {
+            'type': 'input_value',
+            'name': 'NUMBER',
+            'check': 'Number',
+        },
+    ],
+    'output': 'Query',
+    'colour': '%{BKY_LISTS_HUE}',
+    'tooltip': '',
+    'helpUrl': '',
+    "inputsInline": true, //TODO check
 };
 
 const andBlock = {
@@ -136,4 +222,4 @@ const notBlock = {
 };
 
 export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
-    [queryRootBlock, customFieldBlock, knownFieldBlock, containsBlock, andBlock, orBlock, notBlock]);
+    [queryRootBlock, customFieldBlock, knownFieldBlock, containsBlock, equalsBlock, beforeAfterBlock, durationBlock, andBlock, orBlock, notBlock]);

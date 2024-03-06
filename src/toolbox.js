@@ -26,12 +26,83 @@ export const toolbox = {
             "inputs": {
                 "FIELD": {
                     "shadow": {
-                        "type": "custom_field"
+                        "type": "known_field",
+                        "fields": {
+                            "FIELDNAME": "name"
+                        }
                     }
                 },
                 "TEXT": {
                     "shadow": {
                         "type": "text"
+                    }
+                }
+            }
+        },
+        {
+            'kind': 'block',
+            'type': 'equals',
+            "inputs": {
+                "FIELD": {
+                    "shadow": {
+                        "type": "known_field",
+                        "fields": {
+                            "FIELDNAME": "name"
+                        }
+                    }
+                },
+                "TEXT": {
+                    "shadow": {
+                        "type": "text"
+                    }
+                }
+            }
+        },
+        {
+            'kind': 'block',
+            'type': 'before_after',
+            "inputs": {
+                "FIELD": {
+                    "shadow": {
+                        "type": "known_field",
+                        "fields": {
+                            "FIELDNAME": "name"
+                        }
+                    }
+                },
+                "DATE": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "2024-02-03"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            'kind': 'block',
+            'type': 'duration',
+            "inputs": {
+                "FIELD_FROM": {
+                    "shadow": {
+                        "type": "known_field",
+                        "fields": {
+                            "FIELDNAME": "name"
+                        }
+                    }
+                },
+                "FIELD_TO": {
+                    "shadow": {
+                        "type": "known_field",
+                        "fields": {
+                            "FIELDNAME": "name"
+                        }
+                    }
+                },
+                "NUMBER": {
+                    "shadow": {
+                        "type": "math_number"
                     }
                 }
             }
