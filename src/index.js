@@ -8,6 +8,7 @@ import './index.css';
 const panicButton = document.getElementById('panicButton');
 panicButton.onclick = function() {
     reset();
+    location.reload();
 }
 
 Blockly.common.defineBlocks(blocks);
