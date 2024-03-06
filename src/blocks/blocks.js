@@ -27,7 +27,7 @@ const customFieldBlock = {
         }
     ],
     'output': 'Field',
-    'colour': '%{BKY_COLOUR_HUE}',
+    'colour': '%{BKY_LOOPS_HUE}',
     'tooltip': '',
     'helpUrl': '',
 };
@@ -50,7 +50,7 @@ const knownFieldBlock = {
 
     ],
     'output': 'Field',
-    'colour': '%{BKY_COLOUR_HUE}',
+    'colour': '%{BKY_LOOPS_HUE}',
     'tooltip': '',
     'helpUrl': '',
 };
