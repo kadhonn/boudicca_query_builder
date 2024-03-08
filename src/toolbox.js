@@ -109,6 +109,20 @@ export const toolbox = {
         },
         {
             'kind': 'block',
+            'type': 'hasField',
+            "inputs": {
+                "FIELD": {
+                    "shadow": {
+                        "type": "known_field",
+                        "fields": {
+                            "FIELDNAME": "name"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            'kind': 'block',
             'type': 'and',
         },
         {

@@ -49,6 +49,7 @@ const knownFieldBlock = {
                 ["Category", "category"],
                 ["Description", "description"],
                 ["Sources", "sources"],
+                ["Recurrence", "recurrence"],
                 ["Location Name", "location.name"],
                 ["Location Url", "location.url"],
                 ["Location Coordinates", "location.coordinates"],
@@ -176,6 +177,23 @@ const durationBlock = {
     "inputsInline": true, //TODO check
 };
 
+const hasFieldBlock = {
+    'type': 'hasField',
+    'message0': 'Event has Field %1',
+    'args0': [
+        {
+            'type': 'input_value',
+            'name': 'FIELD',
+            'check': 'Field',
+        }
+    ],
+    'output': 'Query',
+    'colour': '%{BKY_LISTS_HUE}',
+    'tooltip': '',
+    'helpUrl': '',
+    "inputsInline": true,
+};
+
 const andBlock = {
     'type': 'and',
     'message0': 'and %1 %2',
@@ -235,4 +253,4 @@ const notBlock = {
 };
 
 export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray(
-    [queryRootBlock, customFieldBlock, knownFieldBlock, containsBlock, equalsBlock, beforeAfterBlock, durationBlock, andBlock, orBlock, notBlock]);
+    [queryRootBlock, customFieldBlock, knownFieldBlock, containsBlock, equalsBlock, beforeAfterBlock, durationBlock, hasFieldBlock, andBlock, orBlock, notBlock]);

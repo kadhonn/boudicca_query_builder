@@ -71,6 +71,12 @@ boudiccaQueryGenerator.forBlock['duration'] = function (block, generator) {
     return [queryCode, Order.ATOMIC];
 }
 
+boudiccaQueryGenerator.forBlock['hasField'] = function (block, generator) {
+    const fieldValue = generator.valueToCode(block, 'FIELD', Order.ATOMIC);
+    let queryCode = `hasField ${fieldValue}`;
+    return [queryCode, Order.ATOMIC];
+}
+
 boudiccaQueryGenerator.forBlock['and'] = function (block, generator) {
     const op1Value = generator.valueToCode(block, 'OP1', Order.ATOMIC);
     const op2Value = generator.valueToCode(block, 'OP2', Order.ATOMIC);
