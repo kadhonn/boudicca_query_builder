@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url uri('https://jitpack.io') }
+    }
+    dependencies {
+        classpath ('com.github.i-net-software:jwebassembly-gradle:master-SNAPSHOT')
+    }
+}
+
+apply plugin: 'java-library'
+apply plugin: 'de.inetsoftware.jwebassembly'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    api ('events.boudicca:query-lib:0.4.0')
+    api ('events.boudicca:semantic-conventions') {
+        version {
+            strictly '0.3.0'
+        }
+    }
+    implementation 'com.github.i-net-software:jwebassembly-api:master-SNAPSHOT'
+}
+
+wasm {
+    compilerVersion = '0.4-LOCAL-SNAPSHOT'
+}
