@@ -1,12 +1,11 @@
 package events.boudicca.bqg;
 
-import base.boudicca.query.BoudiccaQueryRunner;
-import base.boudicca.query.Expression;
-import de.inetsoftware.jwebassembly.api.annotation.Export;
+import org.teavm.jso.dom.html.HTMLDocument;
 
 public class BoudiccaQueryParser {
-    @Export
-    public static Expression parseQuery(String query) {
-        return BoudiccaQueryRunner.INSTANCE.parseQuery(query);
+    public static void main(String[] args) {
+        HTMLDocument.current().getElementById("parse_query_button").addEventListener("click", event -> {
+            System.out.println("frigging hell");
+        });
     }
 }
